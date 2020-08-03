@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>상세 글 작성</title>
+    <script></script>
+    <style>
+        .page-size {
+            width: 1000px;
+            margin: auto;
+        }
+        .editor-function {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .editor-function button, .editor-function select, .category select {
+            height: 30px;
+            min-width: 30px;
+            vertical-align: top;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .content-title:focus, .content-body:focus {
+            outline: none;
+        }
+        .content-title {
+            height: 45px;
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: 24pt;
+            resize: none;
+            border: none;
+            border-bottom: gray 1px solid;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-size">
+        <div class="editor-function">
+            <button class="image-btn">이미지</button>
+            <label>
+                <select name="font-size" class="font-size">
+                    <option value="font-size-title1" style="font-size: 24pt">제목1</option>
+                    <option value="font-size-title2" style="font-size: 20pt">제목2</option>
+                    <option value="font-size-title3" style="font-size: 18pt">제목3</option>
+                    <option value="font-size-body1" style="font-size: 16pt">본문1</option>
+                    <option value="font-size-body2" style="font-size: 12pt">본문2</option>
+                    <option value="font-size-body3" style="font-size: 10pt">본문3</option>
+                </select>
+            </label>
+            <label>
+                <select name="font" class="font">
+                    <option value="default-font" style="font-family: Arial,sans-serif">기본서체</option>
+                    <option value="gothic-font" style="font-family: '맑은 고딕 Semilight',sans-serif">고딕</option>
+                    <option value="meongjo-font" style="font-family: 'HY신명조',sans-serif">명조</option>
+                    <option value="oldschool-font" style="font-family: '궁서체',sans-serif">궁서</option>
+                </select>
+            </label>
+            <button class="font-bold"><b>B</b></button>
+            <button class="font-italic"><i>I</i></button>
+            <button class="font-underline"><u>U</u></button>
+            <button class="font-strike"><s>S</s></button>
+            <label>
+                <select name="font-colour" class="font-colour">
+                    <option value="font-colour-black" style="color: black">검정</option>
+                    <option value="font-colour-red" style="color: red">빨강</option>
+                    <option value="font-colour-blue" style="color: blue">파랑</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="category">
+            <label>
+                <select>
+                    <option value="default-category">카테고리</option>
+                    <option value="category1">카테고리1</option>
+                    <option value="category1">카테고리2</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="editor-body">
+            <label>
+                <textarea class="content-title" placeholder="제목을 입력하세요"></textarea>
+            </label>
+            <div class="content-body" contenteditable="true" autofocus></div>
+        </div>
+    </div>
+
+</body>
+</html>
