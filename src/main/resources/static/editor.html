@@ -3,8 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>상세 글 작성</title>
-    <script></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.content-body').on('keypress', function (e) {
+                if(e.keyCode === 13) {
+                }
+            })
+
+            $(".font-colour").on('change', function(){
+                var sel = window.getSelection ? window.getSelection() : document.getSelection().createRange(); // FF : IE
+                if(sel!=null && sel.getRangeAt){ // thats for FF
+                    var range = sel.getRangeAt(0);
+                    if(range != null) {
+                        var newNode = document.createElement("span");
+                        newNode.setAttribute('style', 'color: '+$(this).val());
+                        range.surroundContents(newNode);
+                    }
+
+                } else { //and thats for IE7
+
+
+                    //sel.pasteHTML('<span class="someclass">'+sel.htmlText+'</span>');
+                }
+                $(this).val('');
+            })
+
+            $(".font-size").on('change', function(){
+                var sel = window.getSelection ? window.getSelection() : document.getSelection().createRange(); // FF : IE
+                if(sel!=null && sel.getRangeAt){ // thats for FF
+                    var range = sel.getRangeAt(0);
+                    if(range != null) {
+                        var newNode = document.createElement("span");
+                        newNode.setAttribute('style', 'font-size: '+$(this).val());
+                        range.surroundContents(newNode);
+                    }
+                } else { //and thats for IE7
+                    //sel.pasteHTML('<span class="someclass">'+sel.htmlText+'</span>');
+                }
+            })
+
+            $(".font").on('change', function(){
+                var sel = window.getSelection ? window.getSelection() : document.getSelection().createRange(); // FF : IE
+                if(sel!=null && sel.getRangeAt){ // thats for FF
+                    var range = sel.getRangeAt(0);
+                    if(range != null) {
+                        var newNode = document.createElement("span");
+                        newNode.setAttribute('style', 'font-family: '+$(this).val());
+                        range.surroundContents(newNode);
+                    }
+                } else { //and thats for IE7
+                    //sel.pasteHTML('<span class="someclass">'+sel.htmlText+'</span>');
+                }
+            })
+
+            $('.font-italic').on('click', function() {
+                var sel = window.getSelection ? window.getSelection() : document.getSelection().createRange(); // FF : IE
+                if(sel!=null && sel.getRangeAt){ // thats for FF
+                    var range = sel.getRangeAt(0);
+                    if(range != null) {
+                        var newNode = document.createElement("i");
+                        range.surroundContents(newNode);
+                    }
+                } else { //and thats for IE7
+                    //sel.pasteHTML('<span class="someclass">'+sel.htmlText+'</span>');
+                }
+            })
+
+            $('.font-bold').on('click', function() {
+                var sel = window.getSelection ? window.getSelection() : document.getSelection().createRange(); // FF : IE
+                if(sel!=null && sel.getRangeAt){ // thats for FF
+                    var range = sel.getRangeAt(0);
+                    if(range != null) {
+                        var newNode = document.createElement("b");
+                        range.surroundContents(newNode);
+                    }
+                } else { //and thats for IE7
+                    //sel.pasteHTML('<span class="someclass">'+sel.htmlText+'</span>');
+                }
+            })
+        })
+    </script>
     <style>
+        body {
+            font-family: Arial,sans-serif;
+        }
         .page-size {
             width: 1000px;
             margin: auto;
@@ -26,12 +109,16 @@
         .content-title {
             height: 45px;
             width: 100%;
-            padding-top: 20px;
+            padding-top: 30px;
             padding-bottom: 20px;
             font-size: 24pt;
             resize: none;
             border: none;
             border-bottom: gray 1px solid;
+        }
+        .content-body {
+            margin-top: 60px;
+            font-size: 12pt;
         }
     </style>
 </head>
@@ -42,20 +129,20 @@
             <button class="image-btn">이미지</button>
             <label>
                 <select name="font-size" class="font-size">
-                    <option value="font-size-title1" style="font-size: 24pt">제목1</option>
-                    <option value="font-size-title2" style="font-size: 20pt">제목2</option>
-                    <option value="font-size-title3" style="font-size: 18pt">제목3</option>
-                    <option value="font-size-body1" style="font-size: 16pt">본문1</option>
-                    <option value="font-size-body2" style="font-size: 12pt">본문2</option>
-                    <option value="font-size-body3" style="font-size: 10pt">본문3</option>
+                    <option value="24pt" style="font-size: 24pt">제목1</option>
+                    <option value="20pt" style="font-size: 20pt">제목2</option>
+                    <option value="18pt" style="font-size: 18pt">제목3</option>
+                    <option value="16pt" style="font-size: 16pt">본문1</option>
+                    <option value="14pt" style="font-size: 14pt">본문2</option>
+                    <option value="12pt" style="font-size: 12pt">본문3</option>
                 </select>
             </label>
             <label>
                 <select name="font" class="font">
-                    <option value="default-font" style="font-family: Arial,sans-serif">기본서체</option>
-                    <option value="gothic-font" style="font-family: '맑은 고딕 Semilight',sans-serif">고딕</option>
-                    <option value="meongjo-font" style="font-family: 'HY신명조',sans-serif">명조</option>
-                    <option value="oldschool-font" style="font-family: '궁서체',sans-serif">궁서</option>
+                    <option value="Arial,sans-serif" style="font-family: Arial,sans-serif">기본서체</option>
+                    <option value="'맑은 고딕 Semilight',sans-serif" style="font-family: '맑은 고딕 Semilight',sans-serif">고딕</option>
+                    <option value="'HY신명조',sans-serif" style="font-family: 'HY신명조',sans-serif">명조</option>
+                    <option value="'궁서체',sans-serif" style="font-family: '궁서체',sans-serif">궁서</option>
                 </select>
             </label>
             <button class="font-bold"><b>B</b></button>
@@ -64,9 +151,10 @@
             <button class="font-strike"><s>S</s></button>
             <label>
                 <select name="font-colour" class="font-colour">
-                    <option value="font-colour-black" style="color: black">검정</option>
-                    <option value="font-colour-red" style="color: red">빨강</option>
-                    <option value="font-colour-blue" style="color: blue">파랑</option>
+                    <option value="" style="color: black">글자색</option>
+                    <option value="black" style="color: black">검정</option>
+                    <option value="red" style="color: red">빨강</option>
+                    <option value="blue" style="color: blue">파랑</option>
                 </select>
             </label>
         </div>
